@@ -1,10 +1,16 @@
 let menu = document.querySelector("#menu-icon");
 let navbar = document.querySelector(".navbar");
 
-menu.addEventListener("click", function () {
-    navbar.classList.toggle("active");
+menu.addEventListener("scroll", function () {
+    navbar.classList.toggle("sticky",window.scrollY > 0);
 });
 
+menu.onclick = () => {
+    menu.classList.toggle('bx-x');
+    navbar.classList.toggle('navbar');
+};
+
 window.onscroll = () => {
-    navbar.classList.remove("active");
+    menu.classList.remove('bx-x');
+    navbar.classList.remove('navbar');
 };
